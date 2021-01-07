@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-dev-container": "docker-compose -f dev-docker-compose.yml build",
+    "build-prod-container": "docker-compose -f prod-docker-compose.yml build",
     "start": "docker-compose -f prod-docker-compose.yml up -d",
     "dev": "docker-compose -f dev-docker-compose.yml up -d",
     "start-container": "docker-compose -f dev-docker-compose.yml run --rm biroda-dev",
