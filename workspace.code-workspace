@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://attached-container+7b22636f6e7461696e65724e616d65223a222f6269726f64612d646576227d/srv/app/server"
+		},
+		{
+			"uri": "vscode-remote://attached-container+7b22636f6e7461696e65724e616d65223a222f6269726f64612d646576227d/srv/app/client"
+		},
+		{
+			"uri": "vscode-remote://attached-container+7b22636f6e7461696e65724e616d65223a222f6269726f64612d646576227d/srv/persistent"
+		},
+		{
+			"uri": "vscode-remote://attached-container+7b22636f6e7461696e65724e616d65223a222f6269726f64612d646576227d/srv/node"
+		},
+		{
+			"uri": "vscode-remote://attached-container+7b22636f6e7461696e65724e616d65223a222f6269726f64612d646576227d/srv"
+		}
+	],
+	"remoteAuthority": "attached-container+7b22636f6e7461696e65724e616d65223a222f6269726f64612d646576227d",
+	"settings": {
+		"terminal.integrated.fontFamily": "MesloLGS NF"
+	}
+}

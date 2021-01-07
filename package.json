@@ -1,0 +1,15 @@
+{
+  "name": "biroda-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose -f prod-docker-compose.yml up -d",
+    "dev": "docker-compose -f dev-docker-compose.yml up -d",
+    "start-container": "docker-compose -f dev-docker-compose.yml run --rm biroda-dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

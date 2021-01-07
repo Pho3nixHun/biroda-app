@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+    biroda-dev:
+        build: .
+        env_file:
+            - docker.env
+        container_name: biroda-dev
+        ports:
+            - "3000"
+        volumes:
+            - "./persistent:/srv/persistent"
+            - "./app:/srv/app"
+            - "./node:/srv/node"
+        stdin_open: true
+        tty: true
