@@ -1,0 +1,26 @@
+{
+  "name": "biroda-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-rest-cache": "^1.1.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "node-fetch": "^2.6.1",
+    "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20",
+    "ts-node-dev": "^1.1.1",
+    "tsc": "^1.20150623.0",
+    "tsconfig-paths": "^3.9.0"
+  }
+}
