@@ -5,7 +5,8 @@ import * as querystring from 'querystring';
 export enum RESOURCE {
     POPULAR = 'movie/popular',
     TOP_RATED = 'movie/top_rated',
-    DETAILS = 'movie'
+    DETAILS = 'movie',
+    LIST = 'list'
 }
 
 export default class TMDBService implements Service {
@@ -45,5 +46,9 @@ export default class TMDBService implements Service {
 
     async details(movieId, language?) {
         return this.read(`${RESOURCE.DETAILS}/${movieId}`, { language });
+    }
+
+    async list(listId: string | number, language?) {
+        return this.read(`${RESOURCE.LIST}/${listId}`, { language });
     }
 }

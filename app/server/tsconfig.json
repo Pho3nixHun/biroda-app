@@ -9,7 +9,7 @@
       "paths": {
         "@utils/*": ["utils/*"],
         "@services/*": ["services/*"],
-        "@routers/*": ["routers/*"],
+        "@routes/*": ["routes/*"],
         "@definitions/*": ["types/*"],
         "@models/*": ["models/*"],
         "@controllers/*": ["controllers/*"],
