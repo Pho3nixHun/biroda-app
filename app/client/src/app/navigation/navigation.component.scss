@@ -1,0 +1,42 @@
+$primary: var(--primary, #e50914);
+$secondary: var(--secondary, #101011);
+$text-color: var(--text-color, #f2f2f2);
+$background: var(--background-color, #030303);
+
+$active-color: $primary;
+$color: $text-color;
+
+nav {
+    --lineX: 0;
+    --lineWidth: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to bottom, $background, transparent);
+    height: 92px;
+    position: relative;
+    &:after {
+        animation: split 1s ease-in-out;
+        content: '';
+        width: var(--lineWidth, 0);
+        position: absolute;
+        height: 4px;
+        background: $active-color;
+        left: var(--lineX, 0);
+        bottom: 0;
+        will-change: left, width;
+        transition: all 300ms ease;
+    }
+    a {
+        text-decoration: none;
+        font-size: 14pt;
+        color: $color;
+        text-transform: capitalize;
+        transition: all 300ms ease;
+        margin-bottom: 1rem;
+        &:hover, &:active, &:focus, &.active {
+            color: $active-color;
+        }
+    }
+}

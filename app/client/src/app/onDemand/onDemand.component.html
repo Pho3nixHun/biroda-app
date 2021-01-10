@@ -1,0 +1,13 @@
+<div>
+    <a-spot 
+        [image]="layout[activeSectionIndex]?.aspot?.image || ''"
+        [defaultImage]="layout[activeSectionIndex]?.aspot?.defaultImage || layout[activeSectionIndex]?.aspot?.image || ''"
+    >
+        <navigation-bar [items]="layout | layoutToNavigationItems" ([active])="activeSectionIndex">
+        </navigation-bar>
+        <tile-carousel>
+            
+        </tile-carousel>
+        <p><b>{{ id }}</b> section works!</p>
+    </a-spot>
+</div>

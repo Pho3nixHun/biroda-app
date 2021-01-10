@@ -1,0 +1,10 @@
+$primary: var(--primary, #e50914);
+$secondary: var(--secondary, #101011);
+$text-color: var(--text-color, #f2f2f2);
+$background: var(--background-color, #030366);
+
+div {
+    background: $background;
+    position: relative;
+    height: 100%;
+}

@@ -1,0 +1,21 @@
+$primary: var(--primary, #e50914);
+$secondary: var(--secondary, #101011);
+$text-color: var(--text-color, #f2f2f2);
+$background: var(--background-color, #030303);
+
+div {
+    height: 100%;
+    position: relative;
+    &.root {
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        transition: opacity 1s;
+        opacity: 0;
+        &.ng-lazyloaded {
+            opacity: 1;
+        }
+    }
+    &.gradient {
+        background-image: linear-gradient(to bottom, $background, transparent, $background 60vh);
+    }      
+}

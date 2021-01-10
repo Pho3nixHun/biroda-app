@@ -1,0 +1,15 @@
+<nav #navElement (window:resize)="onResize()">
+    <a 
+        *ngFor="let item of items; let i = index" 
+        [routerLink]="item.routerLink"
+        href="item.href"
+        routerLinkActive="active"
+        [attr.data-index]="i"
+        [ngClass]="{'active': active === i}"
+        (click)="anchorClickHandler($event, item, i)"
+        class="nav-item"
+        #anchors
+    >
+        {{ item.text }}
+    </a>
+</nav>
