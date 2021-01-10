@@ -11,5 +11,7 @@ services:
             - "./persistent:/srv/persistent"
             - "./app:/srv/app"
             - "./node:/srv/node"
+            - "./docker-resources/.p10k.zsh:/root/.p10k.zsh"
+            - "./docker-resources/.zshrc:/root/.zshrc"
         stdin_open: true
         tty: true

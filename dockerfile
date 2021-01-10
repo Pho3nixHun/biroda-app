@@ -1,5 +1,13 @@
 FROM node:current-alpine
 
+# Setup work directories
+
+WORKDIR /srv/node
+WORKDIR /srv/node/lib
+WORKDIR /srv/node/bin
+WORKDIR /srv/persistent
+WORKDIR /srv/app
+
 # Setup global node directory
 RUN npm config set prefix "/srv/node"
 ENV PATH=/srv/node/bin:$PATH
@@ -45,15 +53,15 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
 
-# Setup work directories
-
-WORKDIR /srv/persistent
-WORKDIR /srv/app
-
 # Install dev packages
 
 RUN apk update && \
-    apk add --no-cache sed git zsh nano bind-tools curl && \
+    apk add --no-cache sed git zsh nano bind-tools curl python build-base gcc make && \
+    apk add --virtual build-dependenciess && \
+    python -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip install --upgrade pip setuptools && \
+    rm -r /root/.cache && \
     rm -rf /var/cache/apk/*
 
 RUN curl -fsSL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/v0.112.0/script-library/common-alpine.sh --output common-alpine.sh \
@@ -61,6 +69,6 @@ RUN curl -fsSL https://raw.githubusercontent.com/microsoft/vscode-dev-containers
     && rm common-alpine.sh
 
 RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-COPY ./docker-resources/.p10k.zsh /root/.p10k.zsh
-COPY ./docker-resources/.zshrc /root/.zshrc
+COPY --chown=root:root ./docker-resources/.p10k.zsh /root/.p10k.zsh
+COPY --chown=root:root ./docker-resources/.zshrc /root/.zshrc
 ENTRYPOINT [ "zsh" ]
