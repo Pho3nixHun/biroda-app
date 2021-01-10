@@ -25,6 +25,7 @@ export class NavigationComponent implements OnInit {
   get activeItem(): NavigationItem { return this.items[this.active] };
   
   constructor() { }
+  ngOnInit(): void { };
 
   anchorClickHandler(event: MouseEvent, item: NavigationItem, i: number) {
     const { target } = event;
