@@ -24,7 +24,7 @@
 - VSCode configs included
 
 
-###Images
+### Images
 
 OnDemand screen
 
@@ -48,7 +48,7 @@ Details screen
 > In case you need to change port or cache or something server related, consult with ```/srv/persistent/config.json```
 
 
-###TODOS
+### TODOS
 
 - [x] Add README.md
 - [ ] OnDemand animations
