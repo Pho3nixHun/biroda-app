@@ -1,1 +1,11 @@
-<p>carousel works!</p>
+<div class="root">
+    <h2>{{carousel?.name}}</h2>
+    <div class="carousel">
+        <movie-tile 
+            *ngFor="let item of carousel?.items"
+            [item]="item"
+            (click)="tileClickHandler(item)"
+        >
+        </movie-tile>
+    </div>
+</div>
