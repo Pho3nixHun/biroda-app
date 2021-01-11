@@ -1,0 +1,91 @@
+$primary: var(--primary, #e50914);
+$secondary: var(--secondary, #101011);
+$text-color: var(--text-color, #f2f2f2);
+$background: var(--background-color, #030366);
+
+.root {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 100%;
+    .gradient {
+        height: 100%;
+        background-image: 
+            linear-gradient(45deg, $background, transparent 70%),
+            linear-gradient(45deg, $background, transparent 70%),
+            linear-gradient(60deg, $background, transparent 70%),
+            linear-gradient(-10deg, $background, transparent 70%),
+            linear-gradient(90deg, $background, transparent 80%);
+        padding: 0 0 0 5%;
+        display: grid;
+        align-content: end;
+        grid-auto-columns: minmax(0, 1fr);
+        * {
+            margin-right: 20%;
+        }
+        tile-carousel {
+            margin-right: 0;
+            cursor: pointer;
+        }
+        a.back {
+            height: 32px;
+            width: 32px;
+            position: absolute;
+            top: 5%;
+            cursor: pointer;
+            &:after {
+                content: '';
+                clip-path: polygon(59% 0, 73% 0, 32% 50%, 73% 100%, 59% 100%, 17% 50%);
+                background-color: $text-color;
+                height: 32px;
+                width: 32px;
+                display: inline-block;
+            }
+        }
+        .tags {
+            display: flex;
+            flex-direction: row;
+            .tag {
+                background-color: $secondary;
+                border-radius: 25px;
+                padding: 0.5rem 1rem;
+                margin-right: 1rem;
+                font-size: 10pt;
+                &.rating {
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        margin-bottom: -3px;
+                        margin-left: -8px;
+                        background-color: $text-color;
+                        width: 12pt;
+                        height: 12pt;
+                        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+                    }
+                    background-color: $primary;
+                }
+            }
+        }
+        .actions {
+            margin-top: 3rem;
+            display: flex;
+            align-items: flex-end;
+        }   
+        a.btn { 
+            cursor: pointer;
+            margin-right: 1rem;
+            padding: .5rem 1rem;
+            min-width: 115px;
+            border-radius: 22px;
+            background: $text-color;
+            color: $secondary;
+            border: none;
+            text-align: center;
+            line-height: 34px;
+            &.primary {
+                background: $primary;
+                color: $text-color;
+            }
+        }
+    }
+}
