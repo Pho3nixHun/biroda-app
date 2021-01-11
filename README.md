@@ -5,6 +5,10 @@
 ### Made for
 ![](https://user-images.githubusercontent.com/4687621/104239311-9cd61e00-545a-11eb-9b1a-29ea3b31c9f6.png)
 
+Developemnt time:
+ - Dev environment and server: 5-6 hours
+ - Client: 8 hours
+
 
 **Table of Contents**
 
@@ -17,6 +21,7 @@
 - Movie catalog with sections, carousels, tiles and promotional spot based on latest Angular version.
 - Details about the selected movie or TV show
 - Live text search
+- Fully Typescript
 - Caching server based on server responses. (in-memory only)
 - Advanced server logging. (Might need some tweaks still)
 - Fully configurable server.
