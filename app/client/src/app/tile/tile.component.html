@@ -1,1 +1,33 @@
-<p>tile works!</p>
+<div class="tile" *ngIf="item" [lazyLoad]="item.poster_path">
+    <div class="details">
+        <span class="title">{{item.title}}</span>
+        <span class="vote">{{item.vote_average}}</span>
+    </div>
+</div>
+
+<!--
+@TODO: Remove this
+{
+  "adult": false,
+  "backdrop_path": "/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg",
+  "genre_ids": [
+    28,
+    12,
+    35,
+    14,
+    878
+  ],
+  "id": 284053,
+  "media_type": "movie",
+  "original_language": "en",
+  "original_title": "Thor: Ragnarok",
+  "overview": "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.",
+  "popularity": 112.417,
+  "poster_path": "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
+  "release_date": "2017-10-25",
+  "title": "Thor: Ragnarok",
+  "video": false,
+  "vote_average": 7.6,
+  "vote_count": 15175
+}
+-->
