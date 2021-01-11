@@ -6,7 +6,8 @@ export enum RESOURCE {
     POPULAR = 'movie/popular',
     TOP_RATED = 'movie/top_rated',
     DETAILS = 'movie',
-    LIST = 'list'
+    LIST = 'list',
+    SEARCH = 'search/multi'
 }
 
 export default class TMDBService implements Service {
@@ -50,5 +51,13 @@ export default class TMDBService implements Service {
 
     async list(listId: string | number, language?) {
         return this.read(`${RESOURCE.LIST}/${listId}`, { language });
+    }
+    
+    async recommendations(movieId: string | number, language?, page = 1) {
+        return this.read(`${RESOURCE.DETAILS}/${movieId}/recommendations`, { page, language });
+    }
+
+    async search(query: string, language?, page = 1, includeAdult = false) {
+        return this.read(RESOURCE.POPULAR, {page, language, 'include_adult': includeAdult})
     }
 }

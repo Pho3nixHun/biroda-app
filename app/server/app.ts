@@ -65,12 +65,17 @@ export const main = async (config: any) => {
     })
     router.get('/api/ondemand/carousel/:id', async (ctx: Koa.Context) => {
         const { params: { id } } = ctx;
-        ctx.body = await onDemandService.details(id);
+        ctx.body = await onDemandService.carousel(id);
         ctx.type = 'json'
     })
     router.get('/api/ondemand/details/:id', async (ctx: Koa.Context) => {
         const { params: { id } } = ctx;
         ctx.body = await onDemandService.details(id);
+        ctx.type = 'json'
+    })
+    router.get('/api/ondemand/search/:query', async (ctx: Koa.Context) => {
+        const { params: { query } } = ctx;
+        ctx.body = await onDemandService.search(query);
         ctx.type = 'json'
     })
 
