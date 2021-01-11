@@ -23,6 +23,7 @@
 - Docker container for development and for production (TODO, based on requirements)
 - VSCode configs included
 
+
 ###Images
 
 OnDemand screen
@@ -45,6 +46,7 @@ Details screen
 > ```/srv/app/client: npm i && npm run start```
 > ```/srv/app/server: npm i && npm run start```
 > In case you need to change port or cache or something server related, consult with ```/srv/persistent/config.json```
+
 
 ###TODOS
 
