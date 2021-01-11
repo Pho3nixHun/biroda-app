@@ -1,4 +1,16 @@
-import { Component, OnInit, ViewEncapsulation, ContentChild, ViewChild, ViewChildren, ElementRef, Input, QueryList } from '@angular/core';
+import {
+  Component, 
+  OnInit, 
+  ViewEncapsulation, 
+  ContentChild, 
+  ViewChild, 
+  ViewChildren, 
+  ElementRef, 
+  Input, 
+  Output, 
+  QueryList, 
+  EventEmitter
+} from '@angular/core';
 
 export type NavigationItem = {
   text: string,
@@ -21,7 +33,8 @@ export class NavigationComponent implements OnInit {
 
   @Input()
   active: number = 0;
-  
+  @Output() activeChange = new EventEmitter();
+
   get activeItem(): NavigationItem { return this.items[this.active] };
   
   constructor() { }
@@ -32,6 +45,7 @@ export class NavigationComponent implements OnInit {
     const { width, x } = (target as Element).getBoundingClientRect();
     if (this.anchors) {
       this.active = [...this.anchors].findIndex((el:ElementRef) => el.nativeElement === target);
+      this.activeChange.emit(this.active);
       this.updateHoverRect(width, x);
     }
   }

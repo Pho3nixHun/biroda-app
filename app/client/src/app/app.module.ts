@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule, Location } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +11,8 @@ import { ASpotComponent } from './a-spot/a-spot.component';
 import { TileComponent } from './tile/tile.component';
 import { OnDemandComponent } from './onDemand/onDemand.component';
 import { DetailsComponent } from './details/details.component';
-import { LazyLoadImageModule } from 'ng-lazyload-image'; // <-- import it
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 import { LayoutToNavigationItemsPipe } from './onDemand/LayoutToNavigationItems.pipe';
 
@@ -29,9 +31,11 @@ import { LayoutToNavigationItemsPipe } from './onDemand/LayoutToNavigationItems.
     BrowserModule,
     AppRoutingModule,
     LazyLoadImageModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    AutocompleteLibModule
   ],
-  providers: [],
+  providers: [Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

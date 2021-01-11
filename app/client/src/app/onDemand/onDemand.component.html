@@ -1,13 +1,44 @@
-<div>
+<!--
+    @TODO: Animations
+    @TODO: BUG: Navigation not restoring at BACK navigation.
+-->
+
+<div class="view">
     <a-spot 
-        [image]="layout[activeSectionIndex]?.aspot?.image || ''"
-        [defaultImage]="layout[activeSectionIndex]?.aspot?.defaultImage || layout[activeSectionIndex]?.aspot?.image || ''"
+        [image]="aspot?.image || transparentPixel"
+        [defaultImage]="aspot?.defaultImage || aspot?.image || transparentPixel"
     >
-        <navigation-bar [items]="layout | layoutToNavigationItems" ([active])="activeSectionIndex">
+        <navigation-bar [items]="layout | layoutToNavigationItems" [(active)]="activeSectionIndex">
+            <ng-autocomplete 
+                [data]="searchResult"
+                [searchKeyword]="keyword"
+                (selected)='onSearchSelect($event)'
+                (inputChanged)='onChangeSearch($event)'
+                placeholder="Search"
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate">
+              </ng-autocomplete>
+              
+              <ng-template #itemTemplate let-item>
+              <a [innerHTML]="item.title"></a>
+              </ng-template>
+              
+              <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+              </ng-template>
         </navigation-bar>
-        <tile-carousel>
-            
-        </tile-carousel>
-        <p><b>{{ id }}</b> section works!</p>
+        <div *ngIf="layout[activeSectionIndex]?.aspot" class="promotion">
+            <h1>{{layout[activeSectionIndex]?.aspot?.title}}</h1>
+            <a class="primary">Play now</a>
+            <a [routerLink]="['/details', layout[activeSectionIndex]?.aspot?.id]">Details</a>
+        </div>
+        <div class="wrapper">
+            <tile-carousel 
+                *ngFor="let carousel of (section$ | async); let i = index" 
+                [carousel]="carousel"
+                (tileClick)="tileClicked($event)"
+            >
+            </tile-carousel>
+        </div>
     </a-spot>
 </div>

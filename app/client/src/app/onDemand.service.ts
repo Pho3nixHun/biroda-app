@@ -46,4 +46,9 @@ export class OnDemandService {
       .get(`${this.URL}/details/${id}`)
       .pipe(catchError(this.handleError));
   }
+  search(query: string): Observable<any> {
+    return this.http
+      .get(`${this.URL}/search/${query}`)
+      .pipe(catchError(this.handleError));
+  }
 }

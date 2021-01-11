@@ -18,4 +18,11 @@ $background: var(--background-color, #030303);
   .app-footer {
     grid-area: "footer";
   }
+  a {
+    color: $primary;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+  }
 }
